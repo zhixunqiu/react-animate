@@ -12,14 +12,25 @@ var path = require('path');
 var loaders = ['babel'];
 var port = process.env.PORT || 3000;
 
+let autoprefixer = require('autoprefixer');
+let precss = require('precss')
+
+
 var devtool;
 var plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  })
+  }),
+  new webpack.LoaderOptionsPlugin({
+    options: {
+      postcss: function () {
+        return [precss, autoprefixer];
+      }
+    }
+  }),
 ];
 var entry = {
-  'demo0-simple-transition': './demos/demo0-simple-transition/index.jsx',
+  'demo0-simple': './demos/demo0-simple/simple.js',
   //'demo1-chat-heads': './demos/demo1-chat-heads/index.jsx',
   //'demo2-draggable-balls': './demos/demo2-draggable-balls/index.jsx',
   //'demo3-todomvc-list-transition': './demos/demo3-todomvc-list-transition/index.jsx',
@@ -59,24 +70,33 @@ module.exports = {
     path: __dirname + '/demos/',
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
+    rules: [{
+      test:  [/\.js$/, /\.jsx$/, /\.es6$/],
       exclude: /build|lib|bower_components|node_modules/,
-      loaders: loaders
+      use: [{
+        loader: "babel-loader?cacheDirectory=true"
+      }]
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css']
-    }],
-    preLoaders: [
-      {test: /\.jsx?$/, loader: 'eslint', exclude: /build|lib|bower_components|node_modules/},
-    ],
-    noParse: [
-      path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js')
-    ],
+      use: [
+        'style-loader',
+        'css-loader',
+        'postcss-loader',
+        'less-loader'
+      ]
+    },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          //'postcss-loader',
+          'less-loader'
+        ]
+      }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
-  plugins: plugins,
-  eslint: {configFile: '.eslintrc'},
+  plugins: plugins
 };

@@ -9,18 +9,18 @@ var path = require('path');
 var config = {
   devtool: 'sourcemap',
   entry: {
-    index: './src/react-motion.js'
+    index: './src/index.js'
   },
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: 'build/',
-    filename: 'react-motion.js',
-    sourceMapFilename: 'react-motion.map',
-    library: 'ReactMotion',
+    filename: 'index.js',
+    sourceMapFilename: 'react-animate.map',
+    library: 'ReactAnimate',
     libraryTarget: 'umd'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(js|jsx)/,
       loader: 'babel'
     }]
