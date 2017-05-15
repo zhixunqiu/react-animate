@@ -12,22 +12,15 @@ var path = require('path');
 var loaders = ['babel'];
 var port = process.env.PORT || 3000;
 
-let autoprefixer = require('autoprefixer');
-let precss = require('precss')
+//let autoprefixer = require('autoprefixer');
+//let precss = require('precss')
 
 
 var devtool;
 var plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  }),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      postcss: function () {
-        return [precss, autoprefixer];
-      }
-    }
-  }),
+  })
 ];
 var entry = {
   'demo0-simple': './demos/demo0-simple/simple.js',
@@ -78,15 +71,22 @@ module.exports = {
       }]
     }, {
       test: /\.css$/,
+      include: [
+        path.resolve(__dirname, 'demos'),
+        path.resolve(__dirname, 'node_modules')
+      ],
       use: [
         'style-loader',
         'css-loader',
-        'postcss-loader',
         'less-loader'
       ]
     },
       {
         test: /\.less$/,
+        include: [
+          path.resolve(__dirname, 'demos'),
+          path.resolve(__dirname, 'node_modules')
+        ],
         use: [
           'style-loader',
           'css-loader',
