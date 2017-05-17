@@ -24,7 +24,7 @@ var plugins = [
 ];
 var entry = {
   'demo0-simple': './demos/demo0-simple/simple.js',
-  //'demo1-chat-heads': './demos/demo1-chat-heads/index.jsx',
+  'demo1-simple': './demos/demo1-simple/simple-remove.js',
   //'demo2-draggable-balls': './demos/demo2-draggable-balls/index.jsx',
   //'demo3-todomvc-list-transition': './demos/demo3-todomvc-list-transition/index.jsx',
   //'demo4-photo-gallery': './demos/demo4-photo-gallery/index.jsx',

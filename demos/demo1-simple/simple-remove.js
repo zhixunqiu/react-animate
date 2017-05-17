@@ -1,24 +1,23 @@
 /* eslint no-console:0, react/no-multi-comp:0 */
 
-import './assets/index.less';
-import Animate from 'rc-animate';
+import './../assets/index.less';
+import Animate from '../../src/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 class Demo extends React.Component {
   state = {
-    enter: true,
+    enter: true
   }
 
   toggleAnimate = () => {
     this.setState({
-      enter: !this.state.enter,
+      enter: !this.state.enter
     });
   }
 
   render() {
     const style = {
-      display: this.state.enter ? 'block' : 'none',
       marginTop: '20px',
       width: '200px',
       height: '200px',
@@ -29,7 +28,7 @@ class Demo extends React.Component {
         <button onClick={this.toggleAnimate}>toggle</button>
         <Animate
           component=""
-          transitionName="fade"
+          transitionName="fade" transitionAppear={true}
         >
           {this.state.enter ? <div key="1" style={style}/> : null}
         </Animate>
@@ -38,4 +37,4 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, document.getElementById('__react-content'));
+ReactDOM.render(<Demo />, document.getElementById('content'));
