@@ -1,2 +1,2 @@
 // export this package's api
-module.exports = require('./Animate');
+module.exports = require('./Animate')

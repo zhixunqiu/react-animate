@@ -41,7 +41,7 @@ class Todo extends React.Component {
 class TodoList extends React.Component {
   state = {
     exclusive: false,
-    items: ['hello', 'world', 'click', 'me'],
+    items: ['hello', 'world', 'click', 'me']
   }
 
   animateEnter = (node, done) => {

@@ -30,7 +30,6 @@ function noop() {
 export default class Animate extends Component {
   static propTypes = {
     component: PropTypes.any,
-    componentProps: PropTypes.object,
     animation: PropTypes.object,
     transitionName: PropTypes.oneOfType([
       PropTypes.string,
@@ -41,23 +40,16 @@ export default class Animate extends Component {
     exclusive: PropTypes.bool,
     transitionLeave: PropTypes.bool,
     onEnd: PropTypes.func,
-    onEnter: PropTypes.func,
-    onLeave: PropTypes.func,
-    onAppear: PropTypes.func,
     showProp: PropTypes.string,
   }
 
   static defaultProps = {
     animation: {},
     component: 'span',
-    componentProps: {},
     transitionEnter: true,
     transitionLeave: true,
     transitionAppear: false,
-    onEnd: noop,
-    onEnter: noop,
-    onLeave: noop,
-    onAppear: noop,
+    onEnd: noop
   }
 
   constructor(props) {
@@ -221,12 +213,10 @@ export default class Animate extends Component {
     } else {
       if (type === 'appear') {
         if (animUtil.allowAppearCallback(props)) {
-          props.onAppear(key)
           props.onEnd(key, true)
         }
       } else {
         if (animUtil.allowEnterCallback(props)) {
-          props.onEnter(key)
           props.onEnd(key, true)
         }
       }
@@ -255,7 +245,6 @@ export default class Animate extends Component {
     } else {
       const end = () => {
         if (animUtil.allowLeaveCallback(props)) {
-          props.onLeave(key)
           props.onEnd(key, false)
         }
       }
@@ -320,8 +309,7 @@ export default class Animate extends Component {
       if (typeof Component === 'string') {
         passedProps = {
           className: props.className,
-          style: props.style,
-          ...props.componentProps,
+          style: props.style
         }
       }
       return <Component {...passedProps}>{children}</Component>
