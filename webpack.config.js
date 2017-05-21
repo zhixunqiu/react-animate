@@ -25,10 +25,10 @@ var plugins = [
 var entry = {
   'demo0-simple': './demos/demo0-simple/simple.js',
   'demo1-simple': './demos/demo1-simple/simple-remove.js',
-  //'demo2-draggable-balls': './demos/demo2-draggable-balls/index.jsx',
+  'demo2-hide-todo': './demos/demo2-hide-todo/hide-todo.js',
   //'demo3-todomvc-list-transition': './demos/demo3-todomvc-list-transition/index.jsx',
   //'demo4-photo-gallery': './demos/demo4-photo-gallery/index.jsx',
-  //'demo5-spring-parameters-chooser': './demos/demo5-spring-parameters-chooser/index.jsx',
+  'demo5-todo-animation': './demos/demo5-todo-animation/todo-animation',
   //'demo7-water-ripples': './demos/demo7-water-ripples/index.jsx',
   //'demo8-draggable-list': './demos/demo8-draggable-list/index.jsx',
 };
