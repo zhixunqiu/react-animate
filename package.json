@@ -7,7 +7,8 @@
     "react": ">=0.13.2 || ^0.14 || ^15.0.0"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.22.1",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.10",
@@ -41,7 +42,7 @@
   "scripts": {
     "start": "node server.js",
     "build-demos": "webpack",
-    "prepublish": "rm -rf lib && babel src --out-dir lib &&  webpack --config webpack.prod.config.js",
+    "prepublish": "rm -rf lib && babel src --out-dir lib",
     "lint": "eslint --ext .js,.jsx ."
   },
   "repository": {
