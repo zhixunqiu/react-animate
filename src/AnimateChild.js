@@ -7,12 +7,12 @@ import animUtil from './util'
 const transitionMap = {
   enter: 'transitionEnter',
   appear: 'transitionAppear',
-  leave: 'transitionLeave',
+  leave: 'transitionLeave'
 }
 
 export default class AnimateChild extends Component {
   static propTypes = {
-    children: PropTypes.any,
+    children: PropTypes.any
   }
 
   componentWillUnmount() {
@@ -65,7 +65,7 @@ export default class AnimateChild extends Component {
       }
       this.stopper = cssAnimate(node, {
         name,
-        active: activeName,
+        active: activeName
       }, end)
     } else {
       this.stopper = props.animation[animationType](node, end)

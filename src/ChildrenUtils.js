@@ -77,6 +77,7 @@ export function mergeChildren(prev, next) {
   // the combined list
   const nextChildrenPending = {}
   let pendingChildren = []
+
   prev.forEach((child) => {
     if (child && findChildInChildrenByKey(next, child.key)) {
       if (pendingChildren.length) {

@@ -40,7 +40,7 @@ class Demo extends Component {
                 <div className='translate' key='circle' style={{transform: `translate3d(${x}px, 0, 0)`}}></div>
                 <div className='animate-prop' key='hello' style={{width:`${width}px`}}>hello</div>
 
-</Animate>
+            </Animate>
         </div>
         )
     }

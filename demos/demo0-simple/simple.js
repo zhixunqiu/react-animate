@@ -60,7 +60,7 @@ class Demo extends Component {
           component=""
           exclusive={this.state.exclusive}
           showProp="show"
-          transitionName="fade"
+          transitionName="fade" onEnd={function(){console.log('end')}}
         >
           <Div show={this.state.enter} style={style}/>
         </Animate>

@@ -83,6 +83,7 @@ export default class Animate extends Component {
     const nextChildren = toArrayChildren(getChildrenFromProps(nextProps))
     const props = this.props
     // exclusive needs immediate response
+
     if (props.exclusive) {
       Object.keys(this.currentlyAnimatingKeys).forEach((key) => {
         this.stop(key)
@@ -203,6 +204,7 @@ export default class Animate extends Component {
     const props = this.props
     delete this.currentlyAnimatingKeys[key]
     // if update on exclusive mode, skip check
+
     if (props.exclusive && props !== this.nextProps) {
       return
     }
